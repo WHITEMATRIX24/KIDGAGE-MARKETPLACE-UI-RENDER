@@ -1,0 +1,264 @@
+.blog-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Adjust the background color as needed */
+  padding: 20px; /* Add padding for smaller screens */
+}
+
+.blog-section {
+  
+  display: flex;
+  align-items: center;
+  position: relative; /* To position the button absolutely within the section */
+  background-color: #F5F5F5; /* White background for the card */
+  border-radius: 8px;
+  max-width: 950px; /* Adjust the max width as needed */
+  height: 350px;
+  width: 90%;
+  flex-direction: row;
+  padding-right: 10px;
+}
+
+.blog-image-container {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.blog-image {
+  margin-top: 5px;
+  width: auto;
+  max-width: 480px;
+  height: 350px;
+  border-radius: 8px; /* Optional: add some border radius */
+}
+
+.blog-text-container {
+  flex: 1;
+  text-align: left; /* Align text to the left */
+}
+
+.blog-text-container h2 {
+  font-family: 'Playfair Display',serif;
+  margin-bottom: 25 px;
+  font-size: 22px;
+  color: #333; /* Adjust the text color as needed */
+}
+
+.blog-text-container p {
+  font-family: 'Poppins',serif;
+  margin-bottom: 10px;
+  padding-right: 20px;
+
+  color: #666; /* Adjust the text color as needed */
+}
+.explore-btn{
+  display: flex;
+  flex-direction: row;
+}
+.blog-explore-link {
+  font-family: 'Poppins',serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #666; /* Adjust the link color as needed */
+}
+
+
+.blog-explore-link:hover {
+  text-decoration: underline;
+}
+
+.blog-arrow-button {
+  position: relative;
+  background-color: #fff;
+  border: 2px solid #ff0000;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 8px;
+  width: 40px;
+  height: 20px; /* Increased height to make the button square */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #ff0000;
+  font-size: 14px;
+}
+
+.blog-arrow-button i {
+  margin-left: 2px; /* Adjust if needed to center the icon */
+}
+
+.blog-arrow-button:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+@media (min-width:1800px) {
+  .blog-section {
+  
+    display: flex;
+    align-items: center;
+    position: relative; /* To position the button absolutely within the section */
+    background-color: #F5F5F5; /* White background for the card */
+    border-radius: 8px;
+    max-width: 1300px; /* Adjust the max width as needed */
+    height: 500px;
+    width: 90%;
+    flex-direction: row;
+    padding-right: 10px;
+  }
+  .blog-image-container {
+    flex: 1;
+    padding-right: 0px;
+    max-width: 700px;
+  }
+  .blog-image {
+    margin-top: 5px;
+    width: auto;
+    max-width: 800px;
+    height: 500px;
+    border-radius: 8px; /* Optional: add some border radius */
+  }
+  .blog-text-container h2 {
+    font-family: 'Playfair Display',serif;
+    margin-bottom: 25 px;
+    padding-left: 20px;
+    font-size: 33px;
+    color: #333; /* Adjust the text color as needed */
+  }
+  .blog-text-container p {
+    font-size: 20px;  
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .explore-btn{
+    padding-left: 20px;
+
+  }
+  
+
+}
+@media (max-width: 925px) {
+  .blog-section{
+    height: 300px;
+  }
+  .blog-text-container h2 {
+    margin-bottom: 20 px;
+    padding-left: 10px;
+    font-size: 23px;
+    color: #333; /* Adjust the text color as needed */
+  }
+  .blog-image {
+    margin-top: 5px;
+    width: auto;
+    max-width: 400px;
+    height: 300px;
+    border-radius: 8px; /* Optional: add some border radius */
+  }
+  .blog-text-container p {
+    font-size: 12px;  
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .explore-btn{
+    padding-left: 10px;
+
+  }
+}
+@media (max-width: 840px) {
+  .blog-section{
+    height: 280px;
+  }
+  .blog-text-container h2 {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 21px;
+    color: #333; /* Adjust the text color as needed */
+  }
+  .blog-image {
+    margin-top: 5px;
+    width: auto;
+    max-width: 400px;
+    height: 280px;
+    border-radius: 8px; /* Optional: add some border radius */
+  }
+  .blog-text-container p {
+    font-size: 12px;  
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .explore-btn{
+    padding-left: 10px;
+
+  }
+}
+@media (max-width: 800px) {
+  .blog-section {
+    margin-top: 0%;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 20px;
+    padding-right: 0px;
+    padding-top: 0px;
+
+  }
+
+  .blog-image-container {
+    padding-right: 0;
+    padding-top: 0px;
+    padding-bottom: 20px;
+  }
+
+  .blog-image {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+  }
+  .blog-text-container p {
+    font-size: 12px;
+    text-align: left;  
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .blog-text-container {
+    text-align: center; /* Center text for smaller screens */
+  }
+  .blog-explore-link{
+    margin-left: 8px;
+  }
+
+  .blog-arrow-button {
+    width: 40px;
+    height: 20px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .blog-section {
+    margin-top: 5%;
+    flex-direction: column;
+    height: auto;
+    max-width: 80%;
+    margin-bottom: 0px;
+  }
+  .blog-text-container h2 {
+    font-size: 20px;
+  }
+
+  .blog-text-container p {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .blog-explore-link{
+    margin-left: 20px;
+  }
+
+  .blog-arrow-button {
+    width: 40px;
+    height: 20px;
+  }
+}

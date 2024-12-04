@@ -1,0 +1,146 @@
+.city-selector-overlay {
+    position: fixed;
+    top: 80px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 1000;
+}
+.city-selector-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/images/bgw1.png'); /* Add your image path here */
+    background-size: 50vw auto; /* Ensure the image covers the entire area */
+    background-position: top right; /* Center the image */
+    background-position-x: 30vw;
+    background-repeat: no-repeat; /* Prevent image repetition */
+    z-index: -1; /* Place it behind the modal */
+}
+.city-selector-modal {
+    background-color: #ffffff8a;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* For Safari support */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 16vw;
+    list-style: none;
+}
+
+.city-selector-modal h5 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.city-selector-modal ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.city-selector-modal li {
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.city-selector-modal li:hover {
+    background-color: #f0f0f0;
+}
+
+.city-selector-modal li:active {
+    background-color: #e0e0e0;
+}
+
+.city-selector-modal li:last-child {
+    margin-bottom: 0;
+}
+@media (max-width:1024px) {
+
+    .city-selector-overlay::before {
+        background-size: 60vw auto; /* Ensure the image covers the entire area */
+        background-position-x: 10vw;
+    }
+    .city-selector-modal {
+        width: 25vw;
+        font-size: 16px;
+    }
+
+}
+@media (max-width:768px) {
+
+    .city-selector-overlay::before {
+        background-size: 65vw auto; /* Ensure the image covers the entire area */
+        background-position-y:5vh ;
+        background-position-x: 5vw;
+        background-image: url(./assets/images/bgw2.png);
+    }
+    .city-selector-modal {
+        width: 25vw;
+        font-size: 12px;
+    }
+    .city-selector-modal h5{
+        font-size: 12px;
+    }
+
+}
+@media (max-width:480px) {
+
+    .city-selector-overlay::before {
+        background-size: 55vw auto; /* Ensure the image covers the entire area */
+        background-position-y:10vh ;
+        background-image: url(./assets/images/bgw2.png);
+    }
+    .city-selector-modal {
+        width: 35vw;
+        font-size: 12px;
+        padding: 8px;
+    }
+    .city-selector-modal h5{
+        font-size: 10px;
+    }
+
+}
+@media(min-width:1800px) and (max-width:2560px) {
+    .city-selector-overlay {
+        top: 120px;
+    }
+    .city-selector-overlay::before {
+        background-size: 50vw auto; /* Ensure the image covers the entire area */
+        background-position-x: 30vw;
+    }
+    .city-selector-modal {
+        width: 12vw;
+        font-size: 20px;
+    }
+    .city-selector-modal h5{
+        font-size: 20px;
+    }
+}
+@media (min-width:2561px) {
+    .city-selector-overlay {
+        top: 120px;
+    }
+    .city-selector-overlay::before {
+        background-size: 50vw auto; /* Ensure the image covers the entire area */
+        background-position-x: 30vw;
+    }
+    .city-selector-modal {
+        width: 10vw;
+        font-size: 20px;
+    }
+    .city-selector-modal h5{
+        font-size: 20px;
+    }
+}

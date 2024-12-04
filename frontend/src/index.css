@@ -1,0 +1,26 @@
+@import url("https://fonts.cdnfonts.com/css/gilroy-bold");
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "gilroy-medium";
+  src: url("../src/components/assets/fonts/Gilroy-Medium.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "gilroy-regular";
+  src: url("./components/assets/fonts/Gilroy-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "gilroy-bold";
+  src: url("./components//assets//fonts/Gilroy-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "gilroy-extrabold";
+  src: url("./components/assets/fonts/Gilroy-ExtraBold.ttf") format("truetype");
+}

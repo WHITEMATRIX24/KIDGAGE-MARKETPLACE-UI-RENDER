@@ -1,0 +1,632 @@
+/* General Styles */
+
+/* Image Container Styles */
+/* Image Container Styles */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+/* Main Image Style */
+.main-image {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Slightly increased radius for a smoother look */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for better depth */
+}
+
+/* Thumbnail Container Style */
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Increased gap for better spacing */
+}
+
+/* Thumbnail Style */
+.thumbnail {
+  width: 90px; /* Increased size */
+  height: 90px; /* Increased size */
+  border-radius: 8px; /* Slightly increased radius for consistency */
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: #ff6f00; /* Orange border on hover or active */
+  transform: scale(1.1); /* Slightly increased zoom effect */
+}
+
+/* Arrow Button Styles */
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 20%;
+  transform: translateY(-50%);
+  background-color: #f8f8f8;
+  color: #333;
+  border: 2px solid #ddd;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-left {
+  left: 20px;
+}
+
+.arrow-right {
+  right: 20px;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  background-color: #e0e0e0; /* Lighter background color on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* SVG Arrow Styling */
+.arrow-left svg,
+.arrow-right svg {
+  stroke: #333; /* Color for the arrow icon */
+  width: 24px;
+  height: 24px;
+}
+
+
+
+/* content section */
+.content-section{
+  margin: 5%;
+}
+
+/* Product Details Styles */
+.details-container {
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.product-title {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 22px;
+  color: #ff5a5f;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Subscription Options Styles */
+.options-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  padding: 15px 20px; /* Adjusted padding for better appearance */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-family: 'Arial', sans-serif; /* Improved font for better readability */
+  background-color: #fff; /* Default background color */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.option:hover,
+.option.selected {
+  background-color: #fff; /* White background on hover or selected */
+  border-color: #ff6f00; /* Orange border color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.option input {
+  margin-right: 15px; /* Increased space between input and label */
+}
+
+.option label {
+  font-size: 18px; /* Increased font size */
+  font-weight: 500; /* Slightly bolder text */
+  color: #333; /* Darker text color */
+  line-height: 1.4; /* Improved line height for readability */
+}
+
+/* Radio Button Styles */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="radio"]:checked {
+  border-color: #ff6f00; /* Orange border for checked state */
+  background-color: #ff6f00; /* Orange background for checked state */
+}
+
+input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #fff; /* White dot for checked state */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="radio"]:hover {
+  border-color: #ff6f00; /* Orange border on hover */
+}
+
+/* Tabs Styles */
+/* Tabs Container */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  border-bottom: 2px solid #ddd; /* Add a bottom border for alignment */
+}
+
+/* Tab Button Styles */
+.tab {
+  padding: 10px 20px;
+  border: none;
+  background: none; /* Remove background for a clean look */
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+  position: relative; /* To position the underline */
+  transition: color 0.3s;
+}
+
+/* Active Tab with Blue Underline */
+.tab.active {
+  color: #007bff !important; /* Change text color for active tab */
+}
+
+.tab.active::after {
+  content: ''; /* Create a pseudo-element for the underline */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: #007bff; /* Blue color for the underline */
+  transition: width 0.3s;
+}
+
+/* Tab Hover Effect */
+.tab:hover {
+  color: #007bff; /* Text color change on hover */
+}
+
+/* Hover Effect for Non-active Tabs */
+.tab:not(.active):hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: #007bff; /* Blue color for hover underline */
+}
+
+
+/* Product Description Styles */
+.product-details {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.product-details ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.product-details li {
+  margin-bottom: 10px;
+}
+
+/* Customer Reviews Styles */
+.reviews-container {
+  margin-top: 40px;
+}
+
+.review {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.review-text {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.review-date {
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* Button Container Styles */
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.shbutton {
+  padding: 15px 20px;
+  font-size:medium;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-family: inherit;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+/* Button Variants */
+.add-to-cart {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.add-to-cart:hover {
+  background-color: #218838;
+}
+
+.give-gift {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.give-gift:hover {
+  background-color: #0056b3;
+}
+
+.wishlist {
+  background-color: #ffc107;
+  color: #333;
+  border-color: #ffc107;
+}
+
+.wishlist.active {
+  background-color: #e0a800;
+}
+
+.wishlist:hover {
+  background-color: #e0a800;
+}
+
+/* Video Container */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+iframe {
+  border: 0;
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+}
+
+/* Shops Layout */
+.shops-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5%;
+  margin: 5% 10%;
+}
+
+.shops-right {
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+
+.shops-left {
+  width: 65%;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+
+@media (max-width: 2000px) {
+  .main-image {
+    max-width: 1000px;
+  }
+}
+@media (max-width: 1700px) {
+
+  .shops-top{
+    margin: 5%;
+  }
+}
+@media (max-width: 1500px) {
+  .main-image {
+    max-width: 800px;
+  }
+  .shops-top{
+    margin: 20px;
+    gap: 10px;
+
+  }
+  .details-container{
+    margin-bottom: 5px;
+  }
+  .options-container{
+    margin: 5px 0;
+    gap:5px;
+  }
+  .option{
+    margin-bottom: 5px;
+  }
+  .button-container{
+    margin: 5px 0;
+    gap: 5px;
+  }
+  .shops-right{
+    width: 40%;
+  }
+}
+@media (max-width: 1200px) {
+  .main-image {
+    max-width: 700px;
+  }
+  .details-container{
+    padding: 5px;
+  }
+  .details-container h1{
+    font-size: x-large;
+  }
+  .details-container .price{
+    font-size: large;
+  }
+  .details-container .description{
+    font-size: medium;
+  }
+  .option label{
+    font-size: medium;
+  }
+}
+@media (max-width: 1024px) {
+  .main-image {
+    max-width: 800px;
+  }
+  .shops-right{
+    width: 50%;
+  }
+  .shops-top{
+    align-items: center;
+  }
+  .details-container{
+    padding: 5px;
+  }
+  .details-container h1{
+    font-size: 20px;
+  }
+  .details-container .price{
+    font-size: large;
+  }
+  .details-container .description{
+    font-size: small;
+    text-align: justify;
+  }
+  .option label{
+    font-size: small;
+  }
+  .option{
+    padding: 10px;
+  }
+  .button-container .shbutton{
+    padding: 10px;
+    font-size: small;
+  }
+}
+/* High Resolution Displays */
+
+/* 4K Screens and Large Desktops */
+@media (min-width: 2560px) {
+
+
+  .thumbnail {
+    width: 90px;
+    height: 90px;
+  }
+
+  .product-title {
+    font-size: 30px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .shbutton {
+    padding: 25px 30px;
+    font-size: 20px;
+  }
+  .tab{
+    font-size: 24px;
+  }
+  .product-details h2{
+    font-size: 24px;
+  }
+  .product-details p,.product-details ul{
+    font-size: 20px;
+  }
+
+  .reviewer-name{
+    font-size: 24px !important;
+  }
+  .review-date{
+    font-size: 18px;
+  }
+  .review p{
+    font-size: 20px;
+  }
+  .content-section{
+    margin: 3% 10%;
+  }
+
+}
+
+/* Theater Screens (8K) */
+@media (min-width: 3840px) {
+  .main-image {
+    max-width: 800px;
+  }
+
+  .thumbnail {
+    width: 120px;
+    height: 120px;
+  }
+
+  .product-title {
+    font-size: 36px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .shbutton {
+    padding: 20px 40px;
+    font-size: 22px;
+  }
+}
+@media (max-width: 768px) {
+  .shops-top {
+    flex-direction: column;
+    align-items: center;
+    margin:0 5%;
+  }
+  .shops-right{
+    width: 100%;
+  }
+  .shops-left {
+    margin: 20px;
+  }
+  
+  .image-container {
+    width: 100%;
+    margin: 10%;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .main-image {
+    max-width: 300px;
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .product-title {
+    font-size: 22px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  .video-container{
+    width: 90%;
+    margin: 5%;
+  }
+}

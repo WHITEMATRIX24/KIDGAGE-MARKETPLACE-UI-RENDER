@@ -1,0 +1,488 @@
+.header {
+    background-color: white;
+    margin-top: 10px;
+}
+
+.content {
+    background-color: #F5F5F5;
+    margin: 0 8%;
+    width: 85%;
+    border-radius: 10px;
+    align-items: center;
+    height: 85px;
+}
+
+/* General pagination item styles */
+.pagination-item {
+    font-size: 1rem;
+    /* Adjust font size */
+    padding: 6px 12px;
+    /* Adjust padding for size */
+    background-color: rgba(173, 216, 230, 0.3);
+    /* Light background for all items */
+    color: #333;
+    /* Text color for non-selected items */
+    border-radius: 12px;
+    /* Round the corners more */
+    margin: 20px 4px;
+    /* Small margin between items */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    /* Smooth transitions */
+}
+
+.pagination-item:hover {
+    background-color: rgba(173, 216, 230, 0.5);
+    /* Slightly darker on hover */
+}
+
+.pagination-item.selected {
+    background-color: #605CA2;
+    /* Darker background for the selected item */
+    color: white;
+    /* White text for the selected item */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    /* Add a slight shadow for emphasis */
+}
+
+/* Styles for previous/next buttons */
+.pagination-previous-next {
+    border: 2px solid #BDBDBD;
+    padding: 10px 20px;
+    margin-left: 150px;
+    margin-right: 50px;
+    /* Ensure size consistency with the other buttons */
+    background-color: rgba(173, 216, 230, 0.3);
+    /* Light background for previous/next */
+    color: #333;
+    /* Text color for non-selected items */
+    border-radius: 12px;
+    /* Round the corners more */
+    transition: background-color 0.3s;
+    /* Smooth transition */
+}
+
+.pagination-previous-next:hover {
+    background-color: rgba(173, 216, 230, 0.5);
+    /* Slightly darker on hover */
+}
+
+.sbar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 50px;
+    position: relative;
+}
+
+.item label {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3880C4;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.item:not(.active) label {
+    opacity: 0.8;
+}
+
+.sbar input {
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    width: 100%;
+    outline: none;
+    cursor: text;
+}
+
+.calendar-dropdowns,
+.calendar-dropdowna {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    border-radius: 10px;
+    z-index: 1001;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+.custom-cal {
+    background: rgba(255, 255, 255, 0.534) !important;
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px) !important;
+    /* Blur effect for the glass look */
+    -webkit-backdrop-filter: blur(5px) !important;
+    /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    /* Border to define edges */
+    border-radius: 10px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    /* Subtle shadow for depth */
+    padding: 10px !important;
+    color: #ffffff !important;
+}
+
+.sbar .dividers {
+    width: 1px;
+    height: 60px;
+    background-color: #8a8888;
+}
+
+.sbutton {
+    color: #3880c4;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    border: none;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.item.active input {
+    font-weight: medium;
+}
+
+.item input:disabled {
+    opacity: 0.5;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #ffffff8a;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari support */
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+
+.dropdown-menu div {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.dropdown-menu div:hover {
+    background-color: #e9ecef;
+}
+
+@media (max-width: 1461px) {
+
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 150%;
+        left: -10%;
+    }
+}
+
+@media (max-width: 840px) {
+
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 200%;
+        left: -60%;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 660px) {
+
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 250%;
+        left: -90%;
+    }
+}
+
+@media (max-width: 1260px) {
+    .content {
+        width: 88.5%;
+        height: 60px;
+        margin: 0% 6%;
+    }
+}
+
+@media (min-width: 1101px) and (max-width: 1260px) {
+
+    .content {
+        width: 84%;
+        margin: 0% 8%;
+    }
+}
+
+@media (min-width: 1261px) and (max-width: 1461px) {
+
+    .content {
+        width: 88%;
+        margin: 0% 6%;
+    }
+}
+
+@media (max-width: 1461px) {
+
+    .content {
+        height: auto;
+    }
+
+    .item {
+        padding: 5px 10px;
+        /* Adjust padding for smaller screens */
+        width: 100%;
+        /* max-width: 300px; */
+    }
+
+    .sbutton {
+        width: 70px;
+        /* Further adjust width for very small screens */
+        height: 70px;
+        /* Further adjust height for very small screens */
+        font-size: 20px;
+        /* Further adjust font size for very small screens */
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 1058px) {
+
+
+    .item {
+        padding: 2px 5px;
+        /* Adjust padding for smaller screens */
+
+    }
+
+    .item label {
+        font-size: 14px;
+    }
+
+    .item span {
+        font-size: 12px;
+        overflow: hidden;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 15px;
+    }
+
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .sbar {
+        height: 60px;
+        /* Allow height to adjust automatically */
+    }
+
+    .item {
+        padding: 5px 5px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .item span {
+        display: none;
+    }
+
+    .item label {
+        font-size: 11px;
+    }
+
+    .sbutton {
+        width: 50px;
+        /* Further adjust width for very small screens */
+        height: 50px;
+        /* Further adjust height for very small screens */
+        font-size: 20px;
+        /* Further adjust font size for very small screens */
+    }
+
+    .content {
+        height: 50px;
+        width: 80%;
+        margin: 0 10%;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 12px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width:900px) {
+    .item span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 530px) {
+
+    .content {
+        width: 80%;
+        margin: 0% 10%;
+        height: 30%;
+    }
+
+    .item label {
+        font-size: 10.6px;
+    }
+
+    .item span {
+        font-size: 8px;
+    }
+
+    .item {
+        padding: 5px 10px;
+        /* Further reduce padding for very small screens */
+    }
+
+    .sbutton {
+        width: 40px;
+        /* Adjust width for very small screens */
+        height: 40px;
+        /* Adjust height for very small screens */
+        font-size: 18px;
+        /* Adjust font size for very small screens */
+    }
+
+
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 300%;
+        left: -100%;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 10px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width: 492px) {
+
+    .content {
+        width: 89%;
+        margin: 0% 6%;
+        height: 30%;
+    }
+}
+
+@media (max-width:440px) {
+    .item {
+        padding: 5px 2px;
+    }
+
+    .item label {
+        font-size: 9px;
+    }
+
+
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 380%;
+        left: -150%;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 120%;
+        justify-content: center;
+        font-size: 8px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 10px;
+    }
+
+    .sbar {
+        height: 50px;
+        /* Allow height to adjust automatically */
+    }
+
+    .sbar .dividers {
+        height: 30px;
+    }
+}
+
+@media (min-width:1920px) {
+    .content {
+        height: 120px;
+    }
+
+    .sbar {
+        height: 120px;
+    }
+
+    .item label {
+        font-size: 24px;
+    }
+
+    .item span {
+        font-size: 20px;
+    }
+
+    .sbar .dividers {
+        height: 90px;
+    }
+}

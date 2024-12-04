@@ -1,0 +1,30 @@
+.tab-listss {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .tabss {
+    background: none;
+    font-family: 'Poppins',serif;
+    
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  
+  .tabss.activess {
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+  }
+  
+  .tab-contentss {
+    padding: 20px;
+  }
+  @media (min-width:1800px) {
+    .tabss{
+      font-size: 18px;
+    }
+  }
