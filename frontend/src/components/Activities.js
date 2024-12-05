@@ -225,26 +225,36 @@ const Activities = () => {
       console.log("API Response:", response.data);
 
       if (response.data && Array.isArray(response.data)) {
-        setCourses(response.data); // Set courses in state
+        // Filter courses based on conditions: active is true, startDate < today, endDate > today
+        const today = new Date();
+        const filteredCourses = response.data.filter((course) => {
+          const startDate = new Date(course.startDate);
+          const endDate = new Date(course.endDate);
+          return (
+            course.active === "true" && startDate < today && endDate > today
+          );
+        });
 
-        // Fetch provider data for each course
-        const providerPromises = response.data.map(async (course) => {
+        setCourses(filteredCourses); // Set filtered courses in state
+
+        // Fetch provider data for each filtered course
+        const providerPromises = filteredCourses.map(async (course) => {
           if (course.providerId) {
             try {
-              const providerResponse = await axios.get(
-                `https://www.kidgage.com/api/users/provider/${course.providerId}`
-              );
-              console.log(
-                `Provider Response for course ${course._id}:`,
+              const providerResponse = await axios.get(`
+                https://www.kidgage.com/api/users/provider/${course.providerId}
+              `);
+              console.log(`
+                Provider Response for course ${course._id}:,
                 providerResponse.data
-              );
+              `);
 
               return { [course.providerId]: providerResponse.data }; // Return provider data mapped by providerId
             } catch (providerError) {
-              console.error(
-                `Error fetching provider for course ${course._id}:`,
+              console.error(`
+                Error fetching provider for course ${course._id}:,
                 providerError
-              );
+              `);
               return null;
             }
           } else {

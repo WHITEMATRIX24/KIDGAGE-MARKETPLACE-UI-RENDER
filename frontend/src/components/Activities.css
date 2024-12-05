@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   /* max-height: 986px; */
   /* overflow-y: auto; */
-  padding: 10px;
+  /* padding: 10px; */
 }
 .card-container-top {
   display: flex;
@@ -239,7 +239,7 @@
 .activity-bottom {
   display: flex;
   justify-content: space-between;
-  margin: 0% 4%;
+  margin: 0% 6%;
   gap: 2rem;
 }
 
@@ -585,16 +585,15 @@
   .banner-container {
     width: 100%;
     align-items: center;
-    margin: 40px 0 0;
+    margin: 10px 0 0;
   }
   .card {
     width: 100%;
     height: 30vw;
   }
   .card:nth-child(1) {
-    height: 30vw;
+    height: 40vw;
     border-radius: 5px;
-    width: auto;
   }
 
   .card:nth-child(2) {
@@ -626,6 +625,9 @@
   }
   .info-image {
     width: 100px;
+  }
+  .card:nth-child(1) {
+    width: auto;
   }
 }
 
