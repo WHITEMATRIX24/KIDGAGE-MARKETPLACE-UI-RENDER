@@ -185,14 +185,38 @@
     margin-top: 10px;
     padding: 10px 20px;
 }
+.dropdown-menu-new {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #ffffff8a;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari support */
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
 
 
 .dropdown-menu div {
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
+.dropdown-menu-new div {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
 
 .dropdown-menu div:hover {
+    background-color: #e9ecef;
+}
+.dropdown-menu-new div:hover {
     background-color: #e9ecef;
 }
 
@@ -280,6 +304,17 @@
         margin-top: 10px;
         padding: 10px 20px;
     }
+    .dropdown-menu-new {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 20px;
+    }
 }
 
 @media (max-width: 1058px) {
@@ -301,6 +336,17 @@
     }
 
     .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 15px;
+    }
+    .dropdown-menu-new {
         position: absolute;
         top: 100%;
         left: 0%;
@@ -350,6 +396,17 @@
     }
 
     .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 12px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 10px;
+    }
+    .dropdown-menu-new {
         position: absolute;
         top: 100%;
         left: 0%;
@@ -416,6 +473,17 @@
         margin-top: 10px;
         padding: 10px 10px;
     }
+    .dropdown-menu-new {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 10px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 10px;
+    }
 }
 
 @media (max-width: 492px) {
@@ -444,6 +512,17 @@
     }
 
     .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 120%;
+        justify-content: center;
+        font-size: 8px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 10px;
+    }
+    .dropdown-menu-new {
         position: absolute;
         top: 100%;
         left: 0%;

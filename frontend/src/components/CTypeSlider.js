@@ -82,13 +82,14 @@ const CTypeSlider = ({ viewAll }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 5,
-    // autoplay: true,
-    // autoplaySpeed: 5000,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     pauseOnHover: true,
     cssEase: "ease-in-out",
+    rtl: true,
     responsive: [
       {
         breakpoint: 1024,
