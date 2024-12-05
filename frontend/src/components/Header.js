@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
-import logo from "./assets/images/KIDGAGE-29.png";
+import logo from "./assets/images/Kidgage logo_horizontal_black.png";
 import bell from "./assets/images/bell.png";
 import CitySelector from "./CitySelector";
 import hamburger from "./assets/images/hamburger.png";

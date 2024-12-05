@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }) => {
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
   const searchBarRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef(true);
   const activityDropdownRef = useRef(null);
 
   const locations = [
@@ -107,8 +107,9 @@ const SearchBar = ({ onSearch }) => {
       setHighlightedIndex(-1);
     }
   };
+  
 
-  const handleOptionClick = (option) => {
+  const handleOptionClick = (option) => {    
     setHighlightedIndex(-1);
     if (option === "location") {
       setShowDropdown(!showDropdown);
@@ -189,6 +190,7 @@ const SearchBar = ({ onSearch }) => {
   const getLabelClassName = (selectedValue, defaultValue) => {
     return selectedValue === defaultValue ? "missing-selection-label" : "";
   };
+  
 
   return (
     <header className="header" ref={searchBarRef}>
@@ -222,7 +224,7 @@ const SearchBar = ({ onSearch }) => {
                 Search activities near you
               </span>
               {showDropdown && (
-                <div className="dropdown-menu" ref={dropdownRef}>
+                <div className="dropdown-menu-new" ref={dropdownRef}>
                   {locations.map((location, index) => (
                     <div
                       key={location}
@@ -265,7 +267,7 @@ const SearchBar = ({ onSearch }) => {
                 Select age range
               </span>
               {showDobDropdown && (
-                <div className="dropdown-menu">
+                <div className="dropdown-menu-new">
                   {ageRanges.map((ageRange, index) => (
                     <div
                       key={ageRange}
@@ -342,7 +344,7 @@ const SearchBar = ({ onSearch }) => {
                 All activities
               </span>
               {showActivityDropdown && (
-                <div className="dropdown-menu" ref={activityDropdownRef}>
+                <div className="dropdown-menu-new" ref={activityDropdownRef}>
                   {courseTypes.map((activity, index) => (
                     <div
                       key={activity}

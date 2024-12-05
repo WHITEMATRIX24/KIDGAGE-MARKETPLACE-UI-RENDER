@@ -1,5 +1,5 @@
 .footer {
-  background-color: #363849;
+  background-color: #99CC99;
   color: #ffffff;
   padding: 100px 80px 80px 80px;
   font-family: 'Playfair Display', serif;
@@ -48,7 +48,7 @@
 }
 
 .footer-copyright {
-  font-family: 'Playfair display',serif;
+  font-family: 'Playfair display', serif;
   text-align: center;
   font-size: 11px;
   margin-top: 10px;
@@ -61,21 +61,23 @@
     padding: 50px 30px 50px 30px;
     font-family: 'Playfair Display', serif;
   }
+
   .footer-logo-image {
     height: 50px;
     width: auto;
   }
+
   .footer-social {
     display: flex;
     gap: 10px;
   }
-  
-  
+
+
   .footer-social a {
     color: #ffffff;
     font-size: 28px;
   }
-  
+
 }
 
 .msg-popup {
@@ -89,12 +91,13 @@
   border-radius: 5px;
   z-index: 1000;
 }
+
 /* Add this to UpcomingEvents.css */
 
 .floating-btn {
   position: fixed;
   bottom: 30px;
-/* Adjust color as needed */
+  /* Adjust color as needed */
   color: white;
   border: none;
   border-radius: 50%;
@@ -106,7 +109,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-size: 24px;
   cursor: pointer;
-  z-index: 1000; /* Ensure it's on top of other elements */
+  z-index: 1000;
+  /* Ensure it's on top of other elements */
 }
 
 
@@ -115,53 +119,61 @@
 }
 
 .wishlist-btn {
-  right: 90px; /* Position next to cart button */
-  background-color: #ff4081; 
+  right: 90px;
+  /* Position next to cart button */
+  background-color: #ff4081;
 
 }
 
-.wishlist-btn:hover{
-  background-color: #e91e63; /* Darker shade on hover */
+.wishlist-btn:hover {
+  background-color: #e91e63;
+  /* Darker shade on hover */
 }
 
 .cart-btn {
-  right: 30px; /* Position on the right */
-  background-color: #fff; 
-  border:1px solid #363849;
+  right: 30px;
+  /* Position on the right */
+  background-color: #fff;
+  border: 1px solid #363849;
 
 }
-.cart-btn:hover{
-  background-color: #fff; 
+
+.cart-btn:hover {
+  background-color: #fff;
 
 }
+
 @media (min-width:1800px) {
-  
-.footer-nav {
-  gap: 3px;
-  display: flex;
-}
 
-.footer-nav a {
+  .footer-nav {
+    gap: 3px;
+    display: flex;
+  }
 
-  font-size: 13px;
-}
+  .footer-nav a {
 
-.separator {
-  color: #ffffff;
-  font-size: 13px;
-}
+    font-size: 13px;
+  }
 
-.footer-copyright {
-  font-size: 13px;
-  margin-top: 10px;
-}
+  .separator {
+    color: #ffffff;
+    font-size: 13px;
+  }
+
+  .footer-copyright {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
   .footer {
     padding: 100px 130px 120px 130px;
   }
+
   .footer-logo-image {
     height: 100px;
     width: auto;
   }
+
   .footer-social a {
     font-size: 3.8em;
   }
@@ -178,6 +190,7 @@
   .footer-social {
     justify-content: center;
   }
+
   .floating-btn {
     bottom: 50px;
     width: 70px;
@@ -185,18 +198,21 @@
     font-size: 34px;
 
   }
-  
-.wishlist-btn {
-  right: 150px; /* Position next to cart button */
+
+  .wishlist-btn {
+    right: 150px;
+    /* Position next to cart button */
+
+  }
+
+  .cart-btn {
+    right: 60px;
+    /* Position on the right */
+
+  }
 
 }
 
-.cart-btn {
-  right: 60px; /* Position on the right */
-
-}
-
-}
 @media (max-width: 820px) {
   .footer {
     padding: 50px 40px 40px 40px;
