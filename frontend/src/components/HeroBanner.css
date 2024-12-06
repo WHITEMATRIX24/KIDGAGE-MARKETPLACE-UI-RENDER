@@ -10,14 +10,16 @@
 
 .hero-slider-container {
   display: flex;
-  width: calc(60% ); /* Adjusted to account for the gap */
+  width: calc(60%);
+  /* Adjusted to account for the gap */
   height: 100%;
   position: relative;
 }
 
 .hero-slide {
   position: absolute;
-  width: calc(100% - 20px); /* Subtracting the gap */
+  width: calc(100% - 20px);
+  /* Subtracting the gap */
   height: 100%;
   transition: all 0.5s ease;
 }
@@ -44,41 +46,52 @@
 .hero-dot.active {
   background-color: white;
 }
+
 @media (min-width: 1800px) {
   .hero-banner {
     height: 250px;
-  }}
+  }
+}
+
 @media (min-width: 2000px) {
   .hero-banner {
     height: 300px;
   }
+
   .hero-slider-container {
     display: flex;
-    width: calc(60% ); /* Adjusted to account for the gap */
+    width: calc(60%);
+    /* Adjusted to account for the gap */
     height: 100%;
     transform: translateX(10px);
     position: relative;
   }
 }
+
 @media (max-width: 1400px) {
   .hero-banner {
     height: 250px;
   }
+
   .hero-slider-container {
     display: flex;
-    width: 100%; /* Adjusted to account for the gap */
+    width: 100%;
+    /* Adjusted to account for the gap */
     height: 100%;
     transform: translateX(10px);
     position: relative;
   }
 }
+
 @media (max-width: 1400px) {
   .hero-banner {
     height: 250px;
   }
+
   .hero-slider-container {
     display: flex;
-    width: 100%; /* Adjusted to account for the gap */
+    width: 100%;
+    /* Adjusted to account for the gap */
     height: 100%;
     transform: translateX(10px);
     position: relative;
@@ -89,9 +102,11 @@
   .hero-banner {
     height: 200px;
   }
+
   .hero-slider-container {
     display: flex;
-    width: 100%; /* Adjusted to account for the gap */
+    width: 100%;
+    /* Adjusted to account for the gap */
     height: 100%;
     transform: translateX(10px);
     position: relative;
@@ -102,9 +117,11 @@
   .hero-banner {
     height: 160px;
   }
+
   .hero-slider-container {
     display: flex;
-    width: 100%; /* Adjusted to account for the gap */
+    width: 100%;
+    /* Adjusted to account for the gap */
     height: 100%;
     transform: translateX(10px);
     position: relative;
@@ -116,13 +133,16 @@
     height: 100px;
   }
 }
+
 @media (min-width: 2300px) {
   .hero-banner {
     height: 330px;
   }
+
   .hero-slider-container {
     display: flex;
-    width: calc(60% ); /* Adjusted to account for the gap */
+    width: calc(60%);
+    /* Adjusted to account for the gap */
     height: 100%;
     transform: translateX(10px);
     position: relative;
@@ -133,7 +153,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Adjust based on your layout */
+  height: 100%;
+  /* Adjust based on your layout */
 }
 
 .loading-dots span {
@@ -142,7 +163,8 @@
   height: 10px;
   margin: 0 5px;
   border-radius: 50%;
-  background: #f25c2a; /* Change to your desired color */
+  background: #f25c2a;
+  /* Change to your desired color */
   animation: loading 1s infinite alternate;
 }
 
@@ -158,46 +180,61 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.5);
   }
 }
-.loader-container{
+
+.loader-container {
   align-items: center;
   justify-content: center;
   height: 50vh;
   margin-left: 50%;
 }
+
 .secloader {
-  width: 60px; /* Loader size */
-  height: 60px; /* Loader size */
-  border: 8px solid #f25c2a; /* Border color */
-  border-top: 8px solid transparent; /* Transparent top border for spinning effect */
-  border-radius: 50%; /* Make it circular */
-  animation: spin 1s linear infinite; /* Animation properties */
+  width: 60px;
+  /* Loader size */
+  height: 60px;
+  /* Loader size */
+  border: 8px solid #f25c2a;
+  /* Border color */
+  border-top: 8px solid transparent;
+  /* Transparent top border for spinning effect */
+  border-radius: 50%;
+  /* Make it circular */
+  animation: spin 1s linear infinite;
+  /* Animation properties */
 }
 
 /* Keyframes for spinning animation */
 @keyframes spin {
   0% {
-      transform: rotate(0deg); /* Start position */
+    transform: rotate(0deg);
+    /* Start position */
   }
+
   100% {
-      transform: rotate(360deg); /* End position */
+    transform: rotate(360deg);
+    /* End position */
   }
 }
-.secloader-container{
+
+.secloader-container {
   align-items: center;
   justify-content: center;
   height: 50vh;
   margin-right: 50%;
   margin-top: 60%;
 }
-.info-loading-dots{
+
+.info-loading-dots {
   position: absolute;
   top: 50%;
   left: 50%;
 }
-.prov-loading-dots{
+
+.prov-loading-dots {
   height: 280px;
 }

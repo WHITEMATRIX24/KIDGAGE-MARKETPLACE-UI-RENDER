@@ -18,9 +18,9 @@ const TopActivities = () => {
       {!viewAll ? (
         <>
           <CTypeSlider />
-          <button className='top-act-view' onClick={handleViewAll}>
+          {/* <button className='top-act-view' onClick={handleViewAll}>
             View All
-          </button>
+          </button> */}
         </>
       ) : (
         <>

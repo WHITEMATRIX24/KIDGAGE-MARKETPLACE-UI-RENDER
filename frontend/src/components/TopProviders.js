@@ -1,16 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./TopProviders.css";
 
 const TopProviders = () => {
-  const [position, setPosition] = useState(0);
   const [providers, setProviders] = useState([]);
-  const [imageWidth, setImageWidth] = useState(0);
-  const [sliderWidth, setSliderWidth] = useState(0);
-  const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(true);
-  const logoSliderRef = useRef(null);
 
   useEffect(() => {
     const fetchProviders = async () => {
@@ -29,53 +26,47 @@ const TopProviders = () => {
     fetchProviders();
   }, []);
 
-  useEffect(() => {
-    if (logoSliderRef.current && providers.length > 0) {
-      const slides = logoSliderRef.current.querySelectorAll(".logo-slide");
-      if (slides.length > 0) {
-        setImageWidth(slides[0].offsetWidth);
-        const numSlides = providers.length;
-        setSliderWidth(numSlides * slides[0].offsetWidth);
-        setMounted(true);
-      }
-    }
-  }, [providers]);
-
-  useEffect(() => {
-    if (mounted) {
-      setPosition(-imageWidth / 2);
-    }
-  }, [mounted, imageWidth]);
-
-  useEffect(() => {
-    let interval;
-    if (providers.length > 5) {
-      interval = setInterval(() => {
-        setPosition((prevPosition) => {
-          const slideWidth = imageWidth || 0;
-          const newPosition = prevPosition - slideWidth;
-          if (Math.abs(newPosition) >= sliderWidth) {
-            return -imageWidth / 2;
-          }
-          return newPosition;
-        });
-      }, 3000);
-    }
-    return () => clearInterval(interval);
-  }, [providers.length, imageWidth, sliderWidth]);
-
-  const activeDot = Math.floor(
-    Math.abs(position + imageWidth / 2) / (imageWidth || 1)
-  );
-  const dotCount = providers.length > 4 ? providers.length - 4 : 0;
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    nextArrow: <div className="slick-next">›</div>,
+    prevArrow: <div className="slick-prev">‹</div>,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div className="top-prov-body">
       <div className="top-providers">
         <h2>Top Providers</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          massa lacus.
+        <p style={{ padding: "10px" }}>
+          Partners in your child’s journey
         </p>
         {loading ? (
           <div className="loading-dots">
@@ -84,42 +75,26 @@ const TopProviders = () => {
             <span></span>
           </div>
         ) : (
-          <>
-            <div className="logo-container">
-              <div
-                className="logo-slider"
-                style={{ transform: `translateX(${position}px)` }}
-                ref={logoSliderRef}
-              >
-                {providers.map((provider, index) => (
-                  <div key={index} className="logo-slide">
-                    {provider.logo && (
-                      <img src={provider.logo} alt={provider.username} />
-                    )}
-                  </div>
-                ))}
+          <Slider {...settings}>
+            {providers.map((provider, index) => (
+              <div key={index} className="logo-slide">
+                {provider.logo && (
+                  <img
+                    src={provider.logo}
+                    alt={provider.username}
+                    className="logo-image"
+                  />
+                )}
               </div>
-            </div>
-            {providers.length > 4 && dotCount > 0 && (
-              <div className="provider-dots">
-                {[...Array(dotCount)].map((_, index) => (
-                  <span
-                    key={index}
-                    className={`provider-dot ${
-                      index === activeDot ? "active" : ""
-                    }`}
-                  ></span>
-                ))}
-              </div>
-            )}
-          </>
+            ))}
+          </Slider>
         )}
       </div>
       <div className="badge-image">
         <h2>Looking to advertise an activity? We can help.</h2>
-        <Link to="/business-signup">
+        <a href="/business-signup">
           <button className="list-your-academy-btn">List your academy</button>
-        </Link>
+        </a>
       </div>
     </div>
   );

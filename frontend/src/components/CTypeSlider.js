@@ -84,7 +84,7 @@ const CTypeSlider = ({ viewAll }) => {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 3000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     pauseOnHover: true,
@@ -125,9 +125,8 @@ const CTypeSlider = ({ viewAll }) => {
   return (
     <div className="slider-container">
       <h2 className="slider-title">Top Activities</h2>
-      <p className="slider-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa
-        lacus.
+      <p className="slider-description" style={{ padding: "10px" }}>
+        Fun that shapes the future.
       </p>
       {loading ? (
         <div className="loading-dots1">

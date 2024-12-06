@@ -54,18 +54,18 @@ const Footer = () => {
           <a href="https://instagram.com/mykidgage" aria-label="Instagram">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="https://facebook.com" aria-label="Facebook">
+          {/* <a href="https://facebook.com" aria-label="Facebook">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
           <a href="https://x.com/" aria-label="Twitter">
             <FontAwesomeIcon icon={faXTwitter} />
-          </a>
-          <a href="https://linkedin.com" aria-label="LinkedIn">
+          </a> */}
+          <a href="https://www.linkedin.com/company/kidgage" aria-label="LinkedIn">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
-          <a href="https://youtube.com" aria-label="YouTube">
+          {/* <a href="https://youtube.com" aria-label="YouTube">
             <FontAwesomeIcon icon={faYoutube} />
-          </a>
+          </a> */}
         </div>
       </div>
       {/* <button className="floating-btn wishlist-btn" onClick={viewWishlist}>
