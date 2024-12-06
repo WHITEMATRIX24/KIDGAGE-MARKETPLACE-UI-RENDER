@@ -343,7 +343,7 @@ const ProviderInfo = () => {
         </div>
 
         <div className="provider-container">
-          <div className="container">
+          <div className="academy-breif-container">
             <div className="pro-image">
               <img
                 src={
@@ -352,32 +352,49 @@ const ProviderInfo = () => {
                 alt="Provider"
               />
             </div>
-            <div className="total-contain">
-              <div className="logo-contain">
-                <h1>{provider.username}</h1>
-                <p>{provider.description}</p>
+            <div className="academy-breif-text-container">
+              <div className="academy-overall-container">
+                <div className="review-container">
+                  <p>NO REVIEWS YET</p>
+                  star
+                </div>
+                <div className="age-container">
+                  <p>SUTABLE FOR</p>
+                  <p>1-5 years</p>
+                  <p>Age Range</p>
+                </div>
+                <div className="venue-container">
+                  <p>VENUES</p>
+                  <p>6</p>
+                  <p>IN Total</p>
+                </div>
               </div>
-              {/* <img
+              <div className="total-contain">
+                <div className="logo-contain">
+                  <h1>{provider.username}</h1>
+                </div>
+                {/* <img
                 src={`data:image/jpeg;base64,${provider.logo}`}
                 alt="Provider"
                 className="pro-logoimage"
               /> */}
-            </div>
-            <div
-              className="verified-div"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginTop: "10px",
-              }}
-            >
-              <img
-                src={verified}
-                style={{ height: "20px", width: "auto", marginRight: "5px" }}
-              ></img>
-              <p style={{ fontWeight: "bold", color: "darkblue" }}>
-                Verified by Kidgage
-              </p>
+              </div>
+              <div
+                className="verified-div"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginTop: "10px",
+                }}
+              >
+                <img
+                  src={verified}
+                  style={{ height: "20px", width: "auto", marginRight: "5px" }}
+                ></img>
+                <p style={{ fontWeight: "bold", color: "#2156E6" }}>
+                  Verified by Kidgage
+                </p>
+              </div>
             </div>
             <div></div>
           </div>
@@ -390,110 +407,114 @@ const ProviderInfo = () => {
                     </div> */}
         </div>
 
-        {/* Display courses */}
-        <div className="container">
-          <div className="provider-courses">
-            <h2>Courses Offered by {provider.username}</h2>
-            {loading ? (
-              <div className="prov-loading-dots">
-                <div className="loading-dots">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            ) : (
-              <>
-                {courses.length > 0 ? (
-                  <ul className="pr-courses-list">
-                    {courses.slice(0, visibleCourses).map((course) => (
-                      <div className="pr-activity-card" key={course._id}>
-                        <div
-                          className="pr-activity-image"
-                          onClick={() => handleClick(course._id)}
-                        >
-                          {/* Display image if available */}
-                          {course.images && course.images.length > 0 ? (
-                            <img src={course.images[0]} alt="Course Image" />
-                          ) : (
-                            <img src={placeholder} alt="Course Image" />
-                          )}
-                          {course.promoted && (
-                            <div className="promoted-overlay">
-                              <div className="promoted-label">Promoted</div>
-                            </div>
-                          )}
-                        </div>
-                        <div className="pr-activity-details">
-                          <div
-                            className="pr-activity-card-in"
-                            onClick={() => handleClick(course._id)}
-                          >
-                            <div className="pr-info-with-img">
-                              <div className="pr-descp">
-                                <h3>{course.name}</h3>
-                                <div
-                                  style={{ display: "flex", marginLeft: "5px" }}
-                                >
-                                  {/* Display location if available */}
-                                  {course.location &&
-                                  course.location.length > 0 ? (
-                                    course.location.map((loc, index) => (
-                                      <div
-                                        key={index}
-                                        className="pr-activity-location"
-                                      >
-                                        <p
-                                          style={{
-                                            marginRight: "8px",
-                                            fontSize: "smaller",
-                                          }}
-                                        >
-                                          <FontAwesomeIcon
-                                            icon={faLocationArrow}
-                                            style={{ marginRight: "5px" }}
-                                          />
-                                          {loc.address}
-                                        </p>
-                                      </div>
-                                    ))
-                                  ) : (
-                                    <p>No locations available</p>
-                                  )}
-                                </div>
-                                <div className="pr-act-location">
-                                  <img
-                                    src={getGenderImage(course.preferredGender)}
-                                    alt="gender"
-                                    style={{
-                                      width: "auto",
-                                      height: "20px",
-                                      marginRight: "10px",
-                                    }}
-                                  />
+        {/* about */}
+        <div className="about-academy-container">
+          <div className="about-academy">
+            <h1>{`About ${provider.username}`}</h1>
+            <p>{provider.description}</p>
+          </div>
 
-                                  <div className="age-group">
-                                    {course.ageGroup &&
-                                    course.ageGroup.length > 0 ? (
-                                      <span className="age-text">
-                                        {calculateAgeRange(
-                                          course.ageGroup[0].ageStart,
-                                          course.ageGroup[0].ageEnd
-                                        )}
-                                      </span>
+          {/* Display courses */}
+          <div className="course-card-container">
+            <div className="provider-courses">
+              <h2>Courses Offered by {provider.username}</h2>
+              {loading ? (
+                <div className="prov-loading-dots">
+                  <div className="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {courses.length > 0 ? (
+                    <ul className="pr-courses-list">
+                      {courses.slice(0, visibleCourses).map((course) => (
+                        <div className="pr-activity-card" key={course._id}>
+                          <div className="pr-activity-image">
+                            {/* Display image if available */}
+                            {course.images && course.images.length > 0 ? (
+                              <img src={course.images[0]} alt="Course Image" />
+                            ) : (
+                              <img src={placeholder} alt="Course Image" />
+                            )}
+                            {course.promoted && (
+                              <div className="promoted-overlay">
+                                <div className="promoted-label">Promoted</div>
+                              </div>
+                            )}
+                          </div>
+                          <div className="pr-activity-details">
+                            <div className="pr-activity-card-in">
+                              <div className="pr-info-with-img">
+                                <div className="pr-descp">
+                                  <h3>{course.name}</h3>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      marginLeft: "5px",
+                                    }}
+                                  >
+                                    {/* Display location if available */}
+                                    {course.location &&
+                                    course.location.length > 0 ? (
+                                      course.location.map((loc, index) => (
+                                        <div
+                                          key={index}
+                                          className="pr-activity-location"
+                                        >
+                                          <p
+                                            style={{
+                                              marginRight: "8px",
+                                              fontSize: "smaller",
+                                            }}
+                                          >
+                                            <FontAwesomeIcon
+                                              icon={faLocationArrow}
+                                              style={{ marginRight: "5px" }}
+                                            />
+                                            {loc.address}
+                                          </p>
+                                        </div>
+                                      ))
                                     ) : (
-                                      <span className="age-text">
-                                        Unavailable
-                                      </span>
+                                      <p>No locations available</p>
                                     )}
                                   </div>
-                                  <br></br>
+                                  <div className="pr-act-location">
+                                    <div className="age-group-container">
+                                      <img
+                                        src={getGenderImage(
+                                          course.preferredGender
+                                        )}
+                                        alt="gender"
+                                        style={{
+                                          width: "auto",
+                                          height: "20px",
+                                          marginRight: "10px",
+                                        }}
+                                      />
 
-                                  <div
-                                    className="day-selector"
-                                    style={{ width: "50%" }}
-                                  >
-                                    <img
+                                      {course.ageGroup &&
+                                      course.ageGroup.length > 0 ? (
+                                        <span className="age-text">
+                                          {calculateAgeRange(
+                                            course.ageGroup[0].ageStart,
+                                            course.ageGroup[0].ageEnd
+                                          )}
+                                        </span>
+                                      ) : (
+                                        <span className="age-text">
+                                          Unavailable
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div
+                                      className="day-selector"
+                                      style={{ width: "50%" }}
+                                    >
+                                      {/* <img
                                       src={calendar}
                                       alt="calendar"
                                       style={{
@@ -502,85 +523,86 @@ const ProviderInfo = () => {
                                         height: "20px",
                                         marginTop: "1%",
                                       }}
-                                    />
+                                    /> */}
 
-                                    {allDays.map((day) => (
-                                      <span
-                                        key={day}
-                                        className={`day ${
-                                          course.days.includes(day)
-                                            ? "active"
-                                            : ""
-                                        }`}
-                                      >
-                                        {day}
-                                      </span>
-                                    ))}
+                                      {allDays.map((day) => (
+                                        <span
+                                          key={day}
+                                          className={`day ${
+                                            course.days.includes(day)
+                                              ? "active"
+                                              : ""
+                                          }`}
+                                        >
+                                          {day}
+                                        </span>
+                                      ))}
+                                    </div>
                                   </div>
-                                </div>
-                                <div className="pr-description-container">
+                                  {/* <div className="pr-description-container">
                                   <p className="pr-activity-description">
                                     {course.description ||
                                       "No description available"}
                                   </p>
+                                </div> */}
                                 </div>
+                                <div
+                                  className="gap-after"
+                                  style={{ height: "3px" }}
+                                ></div>
                               </div>
-                              <div
-                                className="gap-after"
-                                style={{ height: "3px" }}
-                              ></div>
                             </div>
-                          </div>
 
-                          {/* Activity Actions Section */}
-                          <div className="activity-actions">
-                            <div className="activity-buttons">
-                              <button
-                                className="book-now"
-                                style={{ backgroundColor: "#5EA858" }}
-                                onClick={() => {
-                                  const providerName = provider
-                                    ? provider.username
-                                    : "Unknown Provider";
-                                  sendMessage(
-                                    course.name,
-                                    providerName,
-                                    course._id,
-                                    course.feeAmount,
-                                    formatFeeType(course.feeType)
-                                  );
-                                }}
-                              >
-                                <i className="fa-brands fa-whatsapp"></i>
-                                <span
-                                  style={{
-                                    marginLeft: "5px",
-                                    fontWeight: "bold",
-                                  }}
+                            {/* Activity Actions Section */}
+                            <div className="activity-actions">
+                              <div className="activity-buttons">
+                                <button
+                                  className="book-now"
+                                  style={{ backgroundColor: "#5EA858" }}
+                                  onClick={() => handleClick(course._id)}
+                                  // onClick={() => {
+                                  //   const providerName = provider
+                                  //     ? provider.username
+                                  //     : "Unknown Provider";
+                                  //   sendMessage(
+                                  //     course.name,
+                                  //     providerName,
+                                  //     course._id,
+                                  //     course.feeAmount,
+                                  //     formatFeeType(course.feeType)
+                                  //   );
+                                  // }}
                                 >
-                                  Book Now
-                                </span>
-                              </button>
+                                  {/* <i className="fa-brands fa-whatsapp"></i> */}
+                                  <span
+                                    style={{
+                                      marginLeft: "5px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    View more
+                                  </span>
+                                </button>
 
-                              <button
-                                className="share"
-                                style={{ backgroundColor: "#3880C4" }}
-                                onClick={() =>
-                                  handleShare(course.name, course._id)
-                                }
-                              >
-                                <i className="fa-solid fa-share"></i>
-                                <span
-                                  style={{
-                                    marginLeft: "5px",
-                                    fontWeight: "bold",
-                                  }}
+                                <button
+                                  className="share"
+                                  style={{ backgroundColor: "#3880C4" }}
+                                  onClick={() =>
+                                    handleShare(course.name, course._id)
+                                  }
                                 >
-                                  Share
-                                </span>
-                              </button>
+                                  <i className="fa-solid fa-share"></i>
+                                  <span
+                                    style={{
+                                      marginLeft: "5px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    Share
+                                  </span>
+                                </button>
 
-                              <button
+                                {/* <button
                                 className="save"
                                 style={{ backgroundColor: "#3880C4" }}
                                 onClick={() => addToWishlist(course)}
@@ -594,26 +616,27 @@ const ProviderInfo = () => {
                                 >
                                   Save
                                 </span>
-                              </button>
+                              </button> */}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>No courses available from this provider.</p>
-                )}
-              </>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>No courses available from this provider.</p>
+                  )}
+                </>
+              )}
+            </div>
+            {visibleCourses < courses.length && (
+              <div className="see-more-cont">
+                <button className="see-more-more" onClick={handleSeeMore}>
+                  See More <FontAwesomeIcon icon={faChevronDown} />
+                </button>
+              </div>
             )}
           </div>
-          {visibleCourses < courses.length && (
-            <div className="see-more-cont">
-              <button className="see-more-more" onClick={handleSeeMore}>
-                See More <FontAwesomeIcon icon={faChevronDown} />
-              </button>
-            </div>
-          )}
         </div>
       </div>
       <Footer />

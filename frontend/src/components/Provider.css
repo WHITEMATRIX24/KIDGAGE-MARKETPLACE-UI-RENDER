@@ -1,3 +1,54 @@
+.provider-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  padding-bottom: 1rem;
+}
+
+.academy-breif-text-container {
+  margin: 0 2rem;
+}
+
+.academy-overall-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f1;
+  padding-bottom: 3rem;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #f0f0f1;
+}
+
+.age-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #f0f0f1;
+}
+
+.age-container :nth-child(2) {
+  color: var(--textBlueShadeColor);
+  font-weight: 600;
+}
+
+.venue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.venue-container :nth-child(2) {
+  color: var(--textBlueShadeColor);
+  font-weight: 600;
+}
+
 .pr-activity-info-provider {
   width: 90%;
   margin: 0 10%;
@@ -10,19 +61,7 @@
   border-radius: 8px;
   margin-bottom: 15px;
   object-fit: cover;
-  max-height: 400px;
-}
-
-@media (min-width: 1500px) {
-  .pro-image img {
-    max-height: 500px;
-  }
-}
-
-@media (min-width: 2500px) {
-  .pro-image img {
-    max-height: 900px;
-  }
+  max-height: 600px;
 }
 
 .total-contain {
@@ -45,27 +84,21 @@
   justify-content: space-between;
 }
 
-.logo-contain p {
-  text-align: justify;
+.logo-contain h1 {
+  color: var(--textBlueShadeColor);
+  font-weight: 600;
 }
 
-@media (max-width: 1080px) {
-  .logo-contain {
-    flex-direction: column !important;
-  }
-
-  .total-contain {
-    flex-direction: column;
-  }
-
-  .pro-logoimage {
-    width: 100px;
-    height: auto;
-  }
+.about-academy-container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.provider-courses {
-  margin-top: 40px;
+.about-academy h1 {
+  color: var(--textBlueShadeColor);
+  font-size: 21px;
+  font-weight: 700;
 }
 
 .provider-courses h2 {
@@ -76,108 +109,17 @@
 
 /* Container for courses */
 .provider-courses {
+  margin-top: 40px;
   padding: 20px;
 }
 
-/* @media (max-width:480px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(1,  300px);
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-}
-@media (min-width:481px) and (max-width:720px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(1,  340px); 
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-}
-@media (min-width:721px) and (max-width:1100px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(2, 300px); 
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-}
-@media (min-width:1101px) and (max-width:1300px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(3, 300px); 
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-}
-@media (min-width:1301px) and (max-width:1500px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(3, 350px); 
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-}
-@media (min-width:1501px) and (max-width:2100px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(3, 380px); 
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-}
-@media (min-width:2101px) and (max-width:2500px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(3, 390px); 
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-}
-
-@media (min-width:2501px) {
-    .pr-courses-list {
-        display: grid;
-        grid-template-columns: repeat(4, 420px); 
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        justify-content: center; 
-    }
-
-} */
-
 .pr-courses-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   padding: 0;
   margin: 0;
   list-style: none;
-  /* justify-content: center; */
-  flex-wrap: wrap;
 }
 
 /* Style for individual course card */
@@ -185,31 +127,13 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #f7f8fa;
   transition: transform 0.2s ease-in-out;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  /* min-width: 200px; */
-
-  flex: 1 1 100%;
+  /* flex: 1 1 100%; */
   /* flex-basis: 50%; */
-}
-
-@media (min-width: 768px) {
-  .pr-activity-card {
-    flex: 1 1 calc(50% - 20px);
-    max-width: 50%;
-  }
-}
-
-@media (min-width: 2000) {
-  .pr-activity-card {
-    max-width: 50%;
-    flex: 1 1 calc(40%-20px)
-  }
-
 }
 
 /* Hover effect for course card */
@@ -221,25 +145,18 @@
 .pr-activity-image {
   position: relative;
   width: 100%;
+  height: 150px;
 }
 
 .pr-activity-image img {
   width: 100%;
-  /* height: 400px; */
-  object-fit: fill;
-}
-
-@media (max-width: 2500px) {
-  .pr-activity-image img {
-    width: 100%;
-    /* height: 260px; */
-    object-fit: cover;
-  }
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Course details */
 .pr-activity-card-in {
-  padding: 15px;
+  padding: 0px 5px 5px 5px;
 }
 
 /* Course name */
@@ -285,25 +202,53 @@
   border: none;
 }
 
-@media (min-width: 2500px) {
-  .pro-logoimage {
-    max-width: 150px;
-    max-height: 150px;
-  }
+.pr-act-location {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-  .logo-contain p {
-    font-size: 20px;
-  }
+.age-group-container {
+  margin: 5px 0px;
+}
 
-  .logo-contain h1 {
-    font-size: 32px;
+@media (max-width: 1024px) {
+  .pr-courses-list {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  .verified-div img {
-    height: 30px !important;
+@media (max-width: 750px) {
+  .pr-courses-list {
+    grid-template-columns: repeat(2, 1fr);
   }
+  .provider-courses {
+    padding: 20px 0px;
+  }
+  .day-selector {
+    font-size: small;
+  }
+}
 
-  .verified-div p {
-    font-size: 22px;
+@media (max-width: 450px) {
+  .pr-courses-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .academy-overall-container {
+    grid-template-columns: repeat(1, 1fr);
+    padding-bottom: 2rem;
+  }
+  .review-container {
+    border-bottom: 1px solid #f0f0f1;
+    border-right: 0px;
+    padding-bottom: 10px;
+  }
+  .age-container {
+    border-bottom: 1px solid #f0f0f1;
+    border-right: 0px;
+    padding: 10px 0px;
+  }
+  .venue-container {
+    padding-top: 10px;
   }
 }
