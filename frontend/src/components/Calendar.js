@@ -793,6 +793,14 @@ ${formData.parentName}
         className="bookingmodal"
         overlayClassName="bookingmodal-overlay"
       >
+        {/* Close button */}
+        <button
+          type="button"
+          className="modal-close-button"
+          onClick={() => setIsModalOpen(false)}
+        >
+          &times;
+        </button>
         <h2>Booking Details</h2>
         <form className="bookingmodal-form">
           <div className="form-group">
@@ -843,16 +851,10 @@ ${formData.parentName}
             >
               Confirm
             </button>
-            <button
-              type="button"
-              className="close-button"
-              onClick={() => setIsModalOpen(false)}
-            >
-              Cancel
-            </button>
           </div>
         </form>
       </Modal>
+
     </CustomDatePickerWrapper>
   );
 };
