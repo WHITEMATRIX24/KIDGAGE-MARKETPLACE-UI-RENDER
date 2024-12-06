@@ -584,7 +584,7 @@ const ProviderInfo = () => {
                                   </span>
                                 </button>
 
-                                <button
+                                {/* <button
                                   className="share"
                                   style={{ backgroundColor: "#3880C4" }}
                                   onClick={() =>
@@ -600,7 +600,7 @@ const ProviderInfo = () => {
                                   >
                                     Share
                                   </span>
-                                </button>
+                                </button> */}
 
                                 {/* <button
                                 className="save"
