@@ -211,6 +211,7 @@ const ActivityInfo = () => {
           <div className="activity-info-right-section">
             <Calendar
               providerName={provider.username}
+              providerEmail={provider.email}
               courseName={course.name}
               url={window.location.href} // Pass the current URL
               feeAmount={course.feeAmount} // Pass the fee amount

@@ -16,7 +16,7 @@ const Home = () => {
       <HeroBanner />
       {/* <IntroSearch /> */}
       <TopActivities />
-      <BlogSection />
+      {/* <BlogSection /> */}
       <TopProviders />
       {/* <UpcomingEvents /> */}
       <Footer />

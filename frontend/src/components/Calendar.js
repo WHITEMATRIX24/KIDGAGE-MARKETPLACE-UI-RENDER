@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import styled from "styled-components";
+import Modal from "react-modal";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt, FaWhatsapp } from "react-icons/fa";
 import axios from "axios";
-
+import './Calendar.css';
 const CustomDatePickerWrapper = styled.div`
    height:650px;
   width: 450px;
@@ -511,7 +512,7 @@ const CustomDatePickerWrapper = styled.div`
   }
 `;
 
-const Calendar = ({ providerName, courseName }) => {
+const Calendar = ({ providerName, providerEmail, courseName }) => {
   const location = useLocation();
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
@@ -519,6 +520,13 @@ const Calendar = ({ providerName, courseName }) => {
   const [allowedDays, setAllowedDays] = useState([]);
   const [timeSlots, setTimeSlots] = useState([]);
   const { id: courseId } = location.state || {};
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    parentName: "",
+    parentEmail: "",
+    parentPhone: "",
+    childAge: "",
+  });
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
@@ -580,6 +588,89 @@ const Calendar = ({ providerName, courseName }) => {
     const options = { day: "numeric", month: "long", year: "numeric" }; // "October 1, 2024"
     return date.toLocaleDateString(undefined, options);
   };
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleModalSubmit = async () => {
+    try {
+      await fetch("https://www.kidgage.com/api/leads/track", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.error("Failed to update lead count:", error);
+    }
+    if (selectedDate && selectedTime) {
+      const formattedDate = formatDate(selectedDate);
+      const timeSlot = courseDetails.timeSlots.find(
+        (slot) => slot._id === selectedTime
+      );
+      try {
+        await axios.post("http://localhost:5000/api/leads/send-booking-emails", {
+          parentName: formData.parentName,
+          parentEmail: formData.parentEmail,
+          parentPhone: formData.parentPhone,
+          childAge: formData.childAge,
+          courseName,
+          providerName,
+          selectedDate: formatDate(selectedDate),
+          selectedTime: `${convertTo12HourFormat(timeSlot.from)} to ${convertTo12HourFormat(timeSlot.to)}`,
+
+          providerEmail, // Ensure this field is available
+        });
+
+        alert("Booking request sent successfully!");
+        setIsModalOpen(false);
+        const url = window.location.href;
+        const message = `
+        Hello Kidgage Team,
+        
+        I would like to request admission for my child in the following course:
+        
+        Course: ${courseName}
+        
+        Provider: ${providerName}
+        
+        Date: ${formattedDate}
+        
+        Time: ${convertTo12HourFormat(timeSlot.from)} - ${convertTo12HourFormat(timeSlot.to)}
+        
+        Parent Name: ${formData.parentName}
+
+        Parent Contact Number:${formData.parentPhone}
+        
+        Child’s Age: ${formData.childAge}
+        
+        Thank you for providing such a wonderful platform to connect with providers. 
+        
+        Looking forward to your confirmation.
+        
+        Best regards,
+        ${formData.parentName}
+          `;
+
+        const phoneNumber = "97477940018";
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappURL, "_blank");
+
+      } catch (error) {
+        console.error("Error sending booking request:", error);
+        alert("Failed to send booking request.");
+      }
+    }
+    else {
+      alert("Please select both a date and a time slot.");
+    }
+  };
+
+
   const handleBookNow = async () => {
     try {
       await fetch("https://www.kidgage.com/api/leads/track", {
@@ -598,18 +689,30 @@ const Calendar = ({ providerName, courseName }) => {
         (slot) => slot._id === selectedTime
       );
       const url = window.location.href;
-      const message = `I would like to book the course "${courseName}" offered by ${providerName}. 
+      const message = `
+Hello Kidgage Team,
 
-        The course is scheduled for ${formattedDate} during the time slot of 
-        ${convertTo12HourFormat(timeSlot.from)} to ${convertTo12HourFormat(
-        timeSlot.to
-      )}. 
-        
-        The fee is QAR. ${courseDetails.feeAmount} (${formatted(
-        courseDetails.feeType
-      )}). 
-        
-        For more details, please visit ${url}.`;
+I would like to request admission for my child in the following course:
+
+Course: ${courseName}
+
+Provider: ${providerName}
+
+Date: ${formattedDate}
+
+Time: ${convertTo12HourFormat(timeSlot.from)} - ${convertTo12HourFormat(timeSlot.to)}
+
+Parent Name: ${formData.parentName}
+
+Child’s Age: ${formData.childAge}
+
+Thank you for providing such a wonderful platform to connect with providers. Please let me know if you need any further information.
+
+Looking forward to your confirmation.
+
+Best regards,
+${formData.parentName}
+  `;
 
       const phoneNumber = "97477940018";
       const encodedMessage = encodeURIComponent(message);
@@ -636,9 +739,8 @@ const Calendar = ({ providerName, courseName }) => {
         {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day, index) => (
           <div
             key={day}
-            className={`day ${
-              allowedDays.includes(index) ? "highlighted-day" : ""
-            }`}
+            className={`day ${allowedDays.includes(index) ? "highlighted-day" : ""
+              }`}
           >
             {day}
           </div>
@@ -675,11 +777,82 @@ const Calendar = ({ providerName, courseName }) => {
               )} - ${convertTo12HourFormat(slot.to)}`}</option>
             ))}
           </select>
-          <button onClick={handleBookNow}>
+          {/* <button onClick={handleBookNow}>
+            <FaWhatsapp style={{ marginRight: "10px" }} /> Book Now
+          </button> */}
+          <button onClick={() => setIsModalOpen(true)}>
             <FaWhatsapp style={{ marginRight: "10px" }} /> Book Now
           </button>
         </div>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        contentLabel="Booking Modal"
+        ariaHideApp={false}
+        className="bookingmodal"
+        overlayClassName="bookingmodal-overlay"
+      >
+        <h2>Booking Details</h2>
+        <form className="bookingmodal-form">
+          <div className="form-group">
+            <label>Parent Name:</label>
+            <input
+              type="text"
+              name="parentName"
+              value={formData.parentName}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Parent Email:</label>
+            <input
+              type="email"
+              name="parentEmail"
+              value={formData.parentEmail}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Parent Phone:</label>
+            <input
+              type="tel"
+              name="parentPhone"
+              value={formData.parentPhone}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Child's Age:</label>
+            <input
+              type="number"
+              name="childAge"
+              value={formData.childAge}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="bookingmodal-buttons">
+            <button
+              type="button"
+              className="submit-button"
+              onClick={handleModalSubmit}
+            >
+              Confirm
+            </button>
+            <button
+              type="button"
+              className="close-button"
+              onClick={() => setIsModalOpen(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </Modal>
     </CustomDatePickerWrapper>
   );
 };
