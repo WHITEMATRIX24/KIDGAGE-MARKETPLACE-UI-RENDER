@@ -443,8 +443,8 @@
   width: 60%;
 }
 .card-age-container img {
-  width: 18%;
-  height: 18%;
+  width: 10%;
+  height: fit-content;
   margin-top: -1%;
   margin-right: 10px;
 }
@@ -613,6 +613,10 @@
   }
   .card-age-container {
     width: 100%;
+  }
+  .card-age-container img {
+    height: fit-content;
+    width: 8%;
   }
   .card-week-container {
     font-size: smaller;
