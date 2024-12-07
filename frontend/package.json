@@ -43,6 +43,7 @@
     "react-slick": "^0.30.2",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5",
+    "share-api-polyfill": "^1.1.1",
     "slick-carousel": "^1.8.1",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.8.0",
