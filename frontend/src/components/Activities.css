@@ -444,8 +444,8 @@
 }
 .card-age-container img {
   width: 10%;
-  height: fit-content;
-  margin-top: -1%;
+  /* height: fit-content; */
+  /* margin-top: -1%; */
   margin-right: 10px;
 }
 .age-group {
@@ -556,7 +556,7 @@
     align-items: start;
   }
   .card-age-container img {
-    height: fit-content;
+    /* height: fit-content; */
     width: 8%;
   }
   .activity-actions {
@@ -615,7 +615,7 @@
     width: 100%;
   }
   .card-age-container img {
-    height: fit-content;
+    /* aspect-ratio: 1/1; */
     width: 8%;
   }
   .card-week-container {
